@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
 	{
 		M.fromFile(vm["input-file"].as<string>(),
 				   vm["input-format"].as<string>(),
-				   vm["scaling"].as<ptype>());
+				   1.0 / vm["scaling"].as<ptype>());
 	}
 	else
 	{

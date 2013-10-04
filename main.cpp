@@ -11,7 +11,7 @@ using namespace std;
 #include <fftw3.h>
 #endif
 
-#include "rts/material.h"
+#include "rts/optics/material.h"
 //#include "options.h"
 
 #include <boost/program_options.hpp>
@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
 	po::options_description desc("Allowed options");
 	desc.add_options()
 		("help,h", "Display this help message.")
-		("input-file,i", po::value<string>(), "Input file containing material information.")
+		("input-file,i", po::value<string>()->default_value("etaToluene.txt"), "Input file containing material information.")
 		("input-format,f", po::value<string>()->default_value("wavenumber,n,k"), "Format string identifying the order of material properties in the input file. Options include: microns, wavenumber, n (real RI), k (imaginary RI), A (absorbance), Xp (real Chi), Xpp (imaginary Chi).\n\nThe default [microns,n,k] will load a material file with columns representing the wavelength in microns, followed by the real and imaginary parts of the refractive index.")
 		("output-file,o", po::value<string>()->default_value("out.txt"), "Output file containing the processed material information.")
 		("output-format,t", po::value<string>()->default_value("wavenumber,n,k"), "Format string for the output file (similar to --input-format).")
